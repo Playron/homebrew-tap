@@ -1,21 +1,15 @@
-# Cask for sbx, the Azure Service Bus explorer in github.com/Playron/homelab (apps/sbx).
-# The version and sha256 lines are rewritten by the sbx-release workflow in that repo on
-# every sbx-v* tag; do not edit them by hand unless that workflow failed.
+# Cask for sbx, the Azure Service Bus explorer. The source is private; github.com/Playron/sbx
+# holds the releases, and the release workflow in the source repo rewrites the version and
+# sha256 lines here on every release. Do not edit them by hand unless that workflow failed.
+# Livecheck needs no block: Homebrew reads the GitHub releases from the url on its own.
 cask "sbx" do
   version "0.2.0"
   sha256 "9e50713e807bd39fc137777b6f2e5af252ce3adbbfbc2304366e8901715a1ab8"
 
-  url "https://github.com/Playron/homelab/releases/download/sbx-v#{version}/sbx-#{version}-osx-arm64.tar.gz"
+  url "https://github.com/Playron/sbx/releases/download/v#{version}/sbx-#{version}-osx-arm64.tar.gz"
   name "sbx"
   desc "Azure Service Bus explorer"
-  homepage "https://github.com/Playron/homelab/tree/main/apps/sbx"
-
-  # The homelab repo tags other apps too, so match the sbx-v prefix rather than "latest".
-  livecheck do
-    url "https://github.com/Playron/homelab.git"
-    regex(/^sbx-v(\d+(?:\.\d+)+)$/i)
-    strategy :git
-  end
+  homepage "https://github.com/Playron/sbx"
 
   depends_on arch: :arm64
   depends_on macos: ">= :monterey"
