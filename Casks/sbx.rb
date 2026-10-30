@@ -19,10 +19,8 @@ cask "sbx" do
   # The bundle is ad hoc signed, not notarised, so Gatekeeper would refuse it with the quarantine
   # flag Homebrew puts on downloads. Clearing it here does what the README otherwise asks the
   # user to do by hand. Goes away if the app ever gets Developer ID signing and notarisation.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Sbx.app"],
-                   sudo: false
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Sbx.app"]
   end
 
   # Profiles, log and name cache. Connection strings live in the Keychain (service "sbx") and
