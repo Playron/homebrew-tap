@@ -3,8 +3,8 @@
 # sha256 lines here on every release. Do not edit them by hand unless that workflow failed.
 # Livecheck needs no block: Homebrew reads the GitHub releases from the url on its own.
 cask "sbx" do
-  version "0.5.0"
-  sha256 "f8cf76dec44698a24c1ab58fd2491d1a8bf3acb8f64349e1840ca63f362df9cd"
+  version "0.6.0"
+  sha256 "e4273075cfc14f313ee9865279f9726e2412a7286c8fb372c9ff6df5a024a537"
 
   url "https://github.com/Playron/sbx/releases/download/v#{version}/sbx-#{version}-osx-arm64.tar.gz"
   name "sbx"
